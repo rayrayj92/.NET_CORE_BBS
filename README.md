@@ -1,8 +1,7 @@
 # .NET_CORE_BBS
 
 ## 개요
-.NET CORE 3.1을 사용하여 게시판 및 로그인 기능 구현
-MAIN LANDING PAGE의 FRONT-END 디자인
+.NET CORE 3.1을 사용하여 게시판 및 로그인 기능 구현과 LANDING PAGE의 FRONT-END 디자인
 
 ## 기술
 * .NET Core 3.1
