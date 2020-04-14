@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+이 파일은 웹 프로젝트의 게시/패키지 프로세스에서 사용됩니다. 이 MSBuild 파일을 편집하여 이 프로세스의 동작을
+사용자 지정할 수 있습니다. 이에 대한 자세한 내용은 https://go.microsoft.com/fwlink/?LinkID=208121을 참조하세요. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjaeUJ9c9lEuNKeZEK8gmtQAAAAACAAAAAAAQZgAAAAEAACAAAABJJLjO5n1QAKQwPpPQf9zVHllT43Ocvw1p2zVwWRJLdQAAAAAOgAAAAAIAACAAAAAxEhvos/EUr2AeNF2DEUQ8MA2OA4wnxM4Wwr00QEDSBIAAAAASg/aB+qJRDSeGRnhRHjmdvwg9521/WTZfe6BoQEhumb7/jDrNlpolTv0dsUtNVBJt5kYLO/s9iaugrXHIznnlh4zK+gbdUR4UbWd9mk+EH/Csa2eieIZm+Zrf/r3SlrEkHTRT9YC2DSTMAVab/EyOU8ZSb/nFeMQmSB+8r3vUPEAAAAB92ETvdlMaYKszQBh7qGrShvuzdbqygOP7tbR5chyGB1hTB1YlpqALuE+jyuRRfQ9zEu7rwIL1ZBZYzGtI3PBZ</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="EsuContext">
+      <Value>Data Source=tcp:esutestdbserver.database.windows.net,1433%3bInitial Catalog=esutest_db%3bUser Id=esuadmin%40esutestdbserver%3bPassword=Ghfkddl7235!</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="esu_v.Infrastructure.EsuContext">
+      <Value>Data Source=tcp:esutestdbserver.database.windows.net,1433%3bInitial Catalog=esutest_db%3bUser Id=esuadmin%40esutestdbserver%3bPassword=Ghfkddl7235!</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

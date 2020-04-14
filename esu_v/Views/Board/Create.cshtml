@@ -1,0 +1,51 @@
+﻿@model esu_v.Models.Board
+
+@{
+    ViewData["Title"] = "게시판 생성";
+}
+<hr />
+<div class="esu-about esu-width">
+    <div>
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">제목</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label">내용</label>
+                <textarea asp-for="Content" class="form-control" style="height:500px;"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EsuFile" class="control-label">첨부파일1</label>
+                <input asp-for="EsuUpload" class="form-control" />
+                <span asp-validation-for="EsuUpload" class="text-danger"></span>
+            </div>
+            <div class="form-group esu-attach-plus2">
+                <label asp-for="EsuFile2" class="control-label">첨부파일2</label>
+                <input asp-for="EsuUpload2" class="form-control" />
+                <span asp-validation-for="EsuUpload2" class="text-danger"></span>
+            </div>
+            <div class="form-group esu-attach-plus3">
+                <label asp-for="EsuFile3" class="control-label">첨부파일3</label>
+                <input asp-for="EsuUpload3" class="form-control" />
+                <span asp-validation-for="EsuUpload3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="생성" class="btn btn-primary" />
+            </div>
+        </form>
+        <div>
+            <a asp-action="Index">뒤로가기</a>
+        </div>
+    </div>
+</div>
+@section Scripts{ 
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        CKEDITOR.replace("Content");
+    </script>
+}
+

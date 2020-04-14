@@ -1,0 +1,179 @@
+﻿@model IEnumerable<Board>
+@{
+    ViewData["Title"] = "이수 심리상담센터";
+}
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+        <img src="~/img/img_nature_wide.jpg" style="width:100%">
+        <div class="text">
+            <h3>한국 명상 치유 학회</h3>
+            <span>임상 및 상담 실무를 위한 K-MBSR/MBSR 기초교육</span>
+        </div>
+        <a asp-controller="Board" asp-action="Index" class="btn esu-slider-btn btn-lg">모집공고</a>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="~/img/img_snow_wide.jpg" style="width:100%">
+        <div class="text">
+            <h3>대한민국 예술인 복지재단 지정</h3>
+            <span>이수 심리상담센터의 특화 치료 프로그램</span>
+        </div>
+        <a asp-controller="Program" asp-action="Special" class="btn esu-slider-btn btn-lg">자세히 보기</a>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="~/img/img_mountains_wide.jpg" style="width:100%">
+        <div class="text">
+            <h3>이수 심리상담센터</h3>
+            <span>직장 스트레스 상담 및 학습 부진 상담</span>
+        </div>
+        <a asp-controller="Therapy" asp-action="Mental" class="btn esu-slider-btn btn-lg">자세히 보기</a>
+    </div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <a class="esu-board-heading" asp-controller="Board" asp-action="Index">+ 공지사항</a>
+        </div>
+    </div>
+    <hr />
+    <div class="esu-board row text-center">
+        @{ var i = 0; }
+        @foreach (var item in Model)
+        {
+            i++;
+
+            @if (i % 2 == 0)
+            {
+                
+            <div class="esu-even-col col-3">
+                <a asp-controller="Board" asp-action="Details" asp-route-id="@item.Id">
+                    <span class="esu-board-title">@item.Title</span>
+                </a>
+                <br />
+                <span class="esu-board-date">@item.EsuDate</span>
+            </div>
+               
+            }
+            else
+            {
+            <div class="esu-odd-col col-3">
+                <a asp-controller="Board" asp-action="Details" asp-route-id="@item.Id">
+                    <span class="esu-board-title">@item.Title</span>
+                </a>
+                <br />
+                <span class="esu-board-date">@item.EsuDate</span>
+            </div>
+            }
+
+
+        }
+    </div>
+    </div>
+
+    <div class="esu-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <a class="esu-board-heading" asp-controller="Therapy" asp-action="Index">+ 상담안내</a>
+                </div>
+            </div>
+            <hr />
+        </div>
+
+        <div class="row text-center">
+            <div class="col-md-4 esu-three-section">
+                <img src="~/img/reading.png" alt="reading" width=100 padding-top=10 />
+                <h5>학습부진 및 장애</h5>
+                <p>
+                    학습은 여러가지 관점에서 연구되어 왔습니다. 가장 유명한 "강화"라는 개념은 학습의 촉진 혹은 소거를 일으킬 수 있다고 주장되었고, "창의적 이해를 향상시키는 학습상황"의 조성은 맹목적이고 기계적인 암기보다 효과가 좋다고 주장되었습니다.
+                </p>
+                <a role="button" class="btn esu-btn btn-sm" asp-controller="Therapy" asp-action="Study">자세히 보기</a>
+            </div>
+            <div class="col-md-4 esu-three-section">
+                <img src="~/img/abc.png" alt="abc" width=100 padding-top=10 />
+                <h5>언어발달 및 장애</h5>
+                <p>
+                    언어는 사물, 사건, 의도, 생각 등을 표현하기 위한 도구이며 말, 문자, 표정, 제스쳐, 억양 등을 통해 표현됩니다. 그러나 이러한 상징적인 도구들을 원활하게 사용하지 못하여 타인과 의사교환 및 소통이 어려운 경우 우리는 언어장애라고 합니다.
+                </p>
+                <a role="button" class="btn esu-btn btn-sm" asp-controller="Therapy" asp-action="Linguistic">자세히 보기</a>
+            </div>
+            <div class="col-md-4 esu-three-section">
+                <img src="~/img/mental-health.png" alt="mental" width=100 padding-top=10 />
+                <h5>정신건강 및 스트레스</h5>
+                <p>
+                    정신건강은 그 자체로도 중요하지만, 많은 부적응적 문제를 만들어내고 삶을 괴롭게 하기 때문에 더 중요합니다. 정신건강을 저해하는 스트레스의 대부분은 가깝고 소중한 사람들과의 인간관계에서 발생합니다. 부부간의 문제나 자녀와의 문제, 부모와의 문제들은 대표적입니다.
+                </p>
+                <a role="button" class="btn esu-btn btn-sm" asp-controller="Therapy" asp-action="Mental">자세히 보기</a>
+            </div>
+        </div>
+    </div>
+    <div class="esu-price-main row text-center">
+        <div class="esu-price-title col-12">
+            <span>이수 심리상담센터 상담 비용</span>
+        </div>
+    </div>
+    <div class="esu-price-content">
+        <div class="esu-price-1 text-center">
+            <div class="esu-price-top-1">
+                <h5>직장 스트레스 상담</h5>
+                <span>1:1 집중 상담</span>
+            </div>
+            <br />
+            <div class="esu-price-middle-1">
+                <img src="~/img/price/team.png" />
+                <br />
+                <br />
+                <span class="esu-price-middle-1">&#8361;110,000~</span>
+                <p>
+                    1:1 개인 집중 상담 건 별로 후불로 계산 됩니다.
+                </p>
+            </div>
+        </div>
+        <div class="esu-price-2 text-center">
+            <div class="esu-price-top-2">
+                <h5>학습 장애 상담</h5>
+                <span>1:1 집중 상담</span>
+            </div>
+            <br />
+            <div class="esu-price-middle-2">
+                <img src="~/img/price/study.png" />
+                <br />
+                <br />
+                <span class="esu-price-middle-2">&#8361;140,000~</span>
+                <p>
+                    1:1 개인 집중 상담 건 별로 후불로 계산 됩니다.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center esu-partner-title">
+            <span>협력기관</span>
+        </div>
+    </div>
+    <div class="esu-partner-main">
+        <div class="row">
+            <div class="esu-partner-section">
+                <a href="http://www.kawf.kr/" target="_blank"><img src="~/img/partner/art.png" /></a>
+            </div>
+            <div class="esu-partner-section">
+                <a href="http://cafe.daum.net/kmbsr" target="_blank"><img src="~/img/partner/meditation.png" /></a>
+            </div>
+            <div class="esu-partner-section">
+                <a href="http://dgedu.sen.go.kr/" target="_blank"><img src="~/img/partner/seoul.png" /></a>
+            </div>
+        </div>
+    </div>

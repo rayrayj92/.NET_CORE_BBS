@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="esutest" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\ops31\\source\\repos\\esu_v\\esu_v\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
+  </parameter>
+  <parameter name="esu_v.Infrastructure.EsuContext" description="" value="Data Source=tcp:esutestdbserver.database.windows.net,1433;Initial Catalog=esutest_db;User Id=esuadmin@esutestdbserver;Password=Ghfkddl7235!" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\ops31\\source\\repos\\esu_v\\esu_v\\obj\\Release\\netcoreapp3\.1\\PubTmp\\EFSQLScripts\\esu_v\.Infrastructure\.EsuContext\.sql$" />
+  </parameter>
+</parameters>

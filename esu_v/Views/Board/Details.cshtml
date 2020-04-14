@@ -1,0 +1,43 @@
+﻿@model esu_v.Models.Board
+
+@{
+    ViewData["Title"] = "게시판";
+}
+<hr />
+
+<div class="esu-about esu-width">
+    <div>
+        <div>
+            <span class="esu-board-detail-title">@Model.Title</span>
+        </div>
+        <hr />
+        <div class="esu-board-detail-sub">
+            <span class="admin">
+                작성자: 관리자
+            </span>
+            <span class="numViews">조회수 : @Model.NumViews</span>
+        </div>
+        <hr />
+        <div class="esu-board-content">
+            @Html.Raw(Model.Content)
+        </div>
+        <hr />
+        <div class="esu-board-download">
+            <img src="~/img/attach.png" style="width:20px;" />
+            <span>
+                첨부파일
+            </span>
+            <br />
+            <a class="esu-attach" href="~/media/board/@Model.EsuFileURL" download="@Model.EsuFile">@Html.DisplayFor(model => model.EsuFile)</a>
+            <a class="esu-attach" href="~/media/board/@Model.EsuFile2URL" download="@Model.EsuFile2">@Html.DisplayFor(model => model.EsuFile2)</a>
+            <a class="esu-attach" href="~/media/board/@Model.EsuFile3URL" download="@Model.EsuFile3">@Html.DisplayFor(model => model.EsuFile3)</a>
+        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+        <div class="esu-modify">
+            <a class="btn btn-dark" style="color:#fff;" asp-action="Edit" asp-route-id="@Model.Id">수정</a>
+            <a class="btn btn-danger confirmDeletion" asp-action="Delete" asp-route-id="@Model.Id">삭제</a>
+        </div>
+        }
+    </div>
+</div>

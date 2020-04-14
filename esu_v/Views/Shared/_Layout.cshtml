@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> 
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="esu-brand-logo">
+        <a asp-controller="Home" asp-action="Index">
+            <img class="esu-brand-logo-img" src="~/img/logo/logo.png" />
+        </a>
+        <div class="esu-brand-right">
+            <img src="~/img/working-hours.png" width="25" />
+            <span><strong>상담시간 및 예약</strong></span>
+            <br />
+            <span style="color:#1187CF"><strong>02-523-5283</strong></span>
+            <br />
+            <span>평일 및 토요일 : 오전 10시 ~ 오후 8시까지</span>
+            <br />
+            <span>일요일 및 공휴일 : 휴무(사전예약시 확인후 상담진행)</span>
+        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="esu-brand-right">
+                <span>현재 관리자로 로그인 하셨습니다.</span>
+                <a class="btn btn-secondary" style="color:#fff;" asp-controller="Board" asp-action="Create">
+                    공지사항 작성
+                </a>
+                <a class="btn btn-danger" asp-controller="Account" asp-action="Logout">
+                    로그아웃
+                </a>
+            </div>
+        }
+        else
+        {
+
+        }
+
+    </div>
+
+    <hr />
+    <nav class="esu-navbar">
+        <ul class="esu-nav-ul">
+            <li><a class="esu-underline-effect" asp-controller="Home" asp-action="Index">홈</a></li>
+            <li class="esu-dropdown">
+                <a class="esu-underline-effect" asp-controller="About" asp-action="Index">센터 안내</a>
+                <div class="esu-dropdown-content">
+                    <a asp-controller="About" asp-action="Index">원장 인사말</a>
+                    <a asp-controller="About" asp-action="Colleages">센터의 전문가들</a>
+                    <a asp-controller="About" asp-action="ContactUs">찾아오시는 길</a>
+                    <a asp-controller="About" asp-action="CooperateCenter">협력기관</a>
+                </div>
+            </li>
+            <li class="esu-dropdown">
+                <a class="esu-underline-effect" asp-controller="Service" asp-action="Index">이용 안내</a>
+                <div class="esu-dropdown-content">
+                    <a asp-controller="Service" asp-action="Index">상담 시간</a>
+                    <a asp-controller="Service" asp-action="Process">상담 절차</a>
+                </div>
+            </li>
+            <li class="esu-dropdown">
+                <a class="esu-underline-effect" asp-controller="Therapy" asp-action="Index">상담 및 치료대상</a>
+                <div class="esu-dropdown-content">
+                    <a asp-controller="Therapy" asp-action="Index">이상행동 및 적응문제</a>
+                    <a asp-controller="Therapy" asp-action="Mental">정신건강 및 스트레스</a>
+                    <a asp-controller="Therapy" asp-action="Linguistic">언어발달 및 장애</a>
+                    <a asp-controller="Therapy" asp-action="Study">학습부진 및 장애</a>
+                </div>
+            </li>
+            <li class="esu-dropdown">
+                <a class="esu-underline-effect" asp-controller="Evaluation" asp-action="Index">평가 및 진단</a>
+                <div class="esu-dropdown-content">
+                    <a asp-controller="Evaluation" asp-action="Index">심리평가</a>
+                    <a asp-controller="Evaluation" asp-action="Linguistic">언어평가</a>
+                    <a asp-controller="Evaluation" asp-action="Study">학습평가</a>
+                </div>
+            </li>
+            <li class="esu-dropdown">
+                <a class="esu-underline-effect" asp-controller="Program" asp-action="Index">치료 프로그램</a>
+                <div class="esu-dropdown-content">
+                    <a asp-controller="Program" asp-action="Index">일반 치료 프로그램</a>
+                    <a asp-controller="Program" asp-action="Special">특화 치료 프로그램</a>
+                </div>
+            </li>
+            <li class="esu-dropdown">
+                <a class="esu-underline-effect" asp-controller="Board" asp-action="Index">게시판</a>
+                <div class="esu-dropdown-content">
+                    <a asp-controller="Board" asp-action="Index">공지사항</a>
+                    <a asp-controller="Board" asp-action="Gallary">갤러리</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="esu-container-fluid">
+        @RenderBody()
+    </div>
+    <footer class="esu-footer-main">
+        <div class="esu-footer-img">
+            <img src="~/img/footer/footer_logo.png" />
+        </div>
+        <div class="esu-footer-content">
+            <img src="~/img/footer/footer-phone.png" />
+            <span>   02) 523 5283</span>
+            <br />
+            <br />
+            <img src="~/img/footer/footer-mail.png" />
+            <span>   esupsy@gmail.com</span>
+            <br />
+            <br />
+            <img src="~/img/footer/footer-address.png" />
+            <span>   서울시 서초구 방배동 3001-2 </span>
+            <br />
+            <span style="padding-left: 22px">디오슈페리움1 17층 1706호</span>
+        </div>
+        <div class="esu-footer-map text-center">
+            <a asp-controller="About" asp-action="ContactUs"><img src="~/img/footer/map.png" style="width:100%;height:100%;" /></a>
+            <span style="font-size:0.8rem;">자세히 보시려면 위 이미지를 클릭하세요.</span>
+        </div>
+    </footer>
+    <div class="esu-copy text-center">
+        <div>
+            <span>이수심리상담센터의 사전 서면 승인 없이 이 사이트 일체의 정보 등을 무단으로 이용할 수 없습니다.</span>
+            <br />
+            <span>이수심리사담센터의 게시판 정보 및 게시물의 저작권과 기타 법적 책임은 자료제공자에게 있습니다.</span>
+        </div>
+        <div>
+            <span id="scroll-btn" class="esu-go-top">위로 올라가기<span class="arrow-up"></span></span>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/ckeditor/ckeditor.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
