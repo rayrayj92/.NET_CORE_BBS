@@ -14,6 +14,7 @@ MAIN LANDING PAGE의 FRONT-END 디자인
 * CK Editor 4.14.0
 
 ## 기능
+* 구글 MAP API
 * 게시판
     * Input 값 유효성 체크[Back-End, Front-End(HTML5 Attribute)]
     * Pagination
